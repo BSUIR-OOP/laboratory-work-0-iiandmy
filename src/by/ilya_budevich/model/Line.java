@@ -53,4 +53,8 @@ public class Line extends Line2D {
     public Rectangle2D getBounds2D() {
         return null;
     }
+
+    public String toString() {
+        return "Line[p1=" + this.p1 + ", p2=" + this.p2 + "]";
+    }
 }
