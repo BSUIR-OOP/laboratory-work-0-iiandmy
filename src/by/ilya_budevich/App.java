@@ -34,9 +34,7 @@ public class App {
         public List<Shape> getFigures() { return array; }
 
         public void drawFigures() {
-            for (Shape figure : array) {
-                System.out.println(figure);
-            }
+            array.forEach(System.out::println);
         }
     }
 }
