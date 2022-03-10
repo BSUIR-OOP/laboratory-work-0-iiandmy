@@ -27,6 +27,7 @@ public class Square extends Rectangle2D {
     }
 
     @Override
+    @Deprecated
     public void setRect(double x, double y, double w, double h) {
         this.point.setLocation(x, y);
         this.side = w;
@@ -42,12 +43,18 @@ public class Square extends Rectangle2D {
         return this.point.getY();
     }
 
+    public double getSide() {
+        return this.side;
+    }
+
     @Override
+    @Deprecated
     public double getWidth() {
         return this.side;
     }
 
     @Override
+    @Deprecated
     public double getHeight() {
         return this.side;
     }
