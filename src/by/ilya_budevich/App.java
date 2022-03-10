@@ -12,17 +12,12 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         setupApplication();
-        drawFigures(new Figures(new Line(1, 1, 1, 5), new Rectangle(5, 5, 10, 10)));
+        new Figures(new Line(1, 1, 1, 5), new Rectangle(5, 5, 10, 10))
+                .drawFigures();
     }
 
     public static void setupApplication() {
         JFrame mainFrame = new MainFrame("Paint");
-    }
-
-    public static void drawFigures(Figures figures) {
-        for (Shape figure : figures.getFigures()) {
-            System.out.println(figure.toString());
-        }
     }
 
     public static class Figures {
@@ -37,5 +32,11 @@ public class App {
         }
 
         public List<Shape> getFigures() { return array; }
+
+        public void drawFigures() {
+            for (Shape figure : array) {
+                System.out.println(figure);
+            }
+        }
     }
 }
