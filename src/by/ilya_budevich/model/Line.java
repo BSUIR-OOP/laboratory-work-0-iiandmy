@@ -1,10 +1,12 @@
 package by.ilya_budevich.model;
 
+import by.ilya_budevich.model.ifc.TwoPointShape;
+
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-public class Line extends Line2D {
+public class Line extends Line2D implements TwoPointShape {
     private Point p1;
     private Point p2;
 

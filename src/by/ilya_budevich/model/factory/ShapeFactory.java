@@ -1,4 +1,7 @@
-package by.ilya_budevich.model;
+package by.ilya_budevich.model.factory;
+
+import by.ilya_budevich.model.*;
+import by.ilya_budevich.model.Rectangle;
 
 import java.awt.*;
 import java.util.HashMap;

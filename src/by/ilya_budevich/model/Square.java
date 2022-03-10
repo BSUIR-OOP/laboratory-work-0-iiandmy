@@ -1,8 +1,10 @@
 package by.ilya_budevich.model;
 
+import by.ilya_budevich.model.ifc.SymmetricShape;
+
 import java.awt.geom.Rectangle2D;
 
-public class Square extends Rectangle2D {
+public class Square extends Rectangle2D implements SymmetricShape {
     private Point point;
     private double side;
 

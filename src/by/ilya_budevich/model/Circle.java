@@ -1,9 +1,11 @@
 package by.ilya_budevich.model;
 
+import by.ilya_budevich.model.ifc.SymmetricShape;
+
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
-public class Circle extends Ellipse2D {
+public class Circle extends Ellipse2D implements SymmetricShape {
     private Point point;
     private double diameter;
 

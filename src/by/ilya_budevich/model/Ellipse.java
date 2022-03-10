@@ -1,9 +1,11 @@
 package by.ilya_budevich.model;
 
+import by.ilya_budevich.model.ifc.RegularShape;
+
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
-public class Ellipse extends Ellipse2D {
+public class Ellipse extends Ellipse2D implements RegularShape {
     private Point point;
     private double width;
     private double height;
