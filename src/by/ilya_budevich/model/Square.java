@@ -60,6 +60,11 @@ public class Square extends Rectangle2D {
     }
 
     @Override
+    public String toString() {
+        return "Square[p=" + point + ", side=" + side + "]";
+    }
+
+    @Override
     public int outcode(double x, double y) {
         return 0;
     }

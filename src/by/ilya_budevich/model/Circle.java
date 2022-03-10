@@ -58,5 +58,10 @@ public class Circle extends Ellipse2D {
     public Rectangle2D getBounds2D() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Circle[p=" + point + ", d=" + diameter + "]";
+    }
     
 }
