@@ -7,8 +7,8 @@ import java.awt.*;
 import java.util.concurrent.Flow;
 
 public class MainFrame extends JFrame {
-    public final int WINDOW_WIDTH = 600;
-    public final int WINDOW_HEIGHT = 400;
+    public final int WINDOW_WIDTH = 1280;
+    public final int WINDOW_HEIGHT = 720;
 
     private JPanel drawPanel;
     private JPanel menuPanel;
@@ -31,7 +31,6 @@ public class MainFrame extends JFrame {
         // Add menu panel
         menuPanel = new MenuPanel();
         this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        menuPanel.setBackground(Color.ORANGE);
         this.add(menuPanel, BorderLayout.NORTH);
 
         this.setVisible(true);

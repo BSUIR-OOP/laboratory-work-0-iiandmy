@@ -1,6 +1,6 @@
 package by.ilya_budevich.view;
 
-import by.ilya_budevich.model.ShapeFactory;
+import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.utils.JTextFieldHint;
 
 import javax.swing.*;
@@ -26,12 +26,11 @@ public class MenuPanel extends JPanel {
 
     private static class ShapeChoosePanel extends JPanel {
         public ShapeChoosePanel() {
-            this.setLayout(new GridLayout(2, 1));
+            this.setLayout(new GridLayout(1, 1));
             initPanel();
         }
 
         private void initPanel() {
-            this.add(new JLabel("  Shape:"));
             this.add(new JComboBox<>(ShapeFactory.getInstance().getShapeNames()));
         }
     }
@@ -44,7 +43,7 @@ public class MenuPanel extends JPanel {
         private JPanel pointPanel;
 
         public ShapePanel() {
-            this.setLayout(new GridLayout(2, 3));
+            this.setLayout(new GridLayout(1, 3));
             initComponents();
             initPanel();
         }
@@ -63,9 +62,6 @@ public class MenuPanel extends JPanel {
         }
 
         private void initPanel() {
-            this.add(new JLabel("  Point"));
-            this.add(new JLabel("  Width"));
-            this.add(new JLabel("  Height"));
             this.add(pointPanel);
             this.add(widthTF);
             this.add(heightTF);
