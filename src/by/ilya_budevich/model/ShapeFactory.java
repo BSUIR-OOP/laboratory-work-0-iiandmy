@@ -13,6 +13,10 @@ public class ShapeFactory {
         return shapes.get(shapeName).get();
     }
 
+    public String[] getShapeNames() {
+        return shapes.keySet().toArray(new String[0]);
+    }
+
     private ShapeFactory() {
         shapes.put("Circle", () -> new Circle(0, 0, 0));
         shapes.put("Ellipse", () -> new Ellipse(0, 0, 0, 0));
