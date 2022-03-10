@@ -1,5 +1,7 @@
 package by.ilya_budevich.view;
 
+import by.ilya_budevich.model.Rectangle;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +10,7 @@ public class MainFrame extends JFrame {
     public final int WINDOW_HEIGHT = 400;
 
     private JPanel drawPanel;
+    private JPanel menuPanel;
 
     public MainFrame(String frameTitle) {
         super(frameTitle);
@@ -19,13 +22,17 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        // Add menu panel
+        menuPanel = new JPanel();
+        menuPanel.add(new JLabel("Lorem ipsum dolor sit amet."));
+        menuPanel.setBackground(Color.ORANGE);
+        this.add(menuPanel);
+
         // Add draw panel
-        drawPanel = new MainDrawPanel();
-        this.add(drawPanel,
-                new GridBagConstraints(0, 0, 1, 1, 1, 1,
-                        GridBagConstraints.NORTH, GridBagConstraints.BOTH,
-                        new Insets(2, 2, 2, 2), 0, 0)
-        );
+        drawPanel = new DrawPanel();
+        drawPanel.add(new JLabel("Lorem ipsum dolor sit amet."));
+        drawPanel.setBackground(Color.BLUE);
+        this.add(drawPanel);
 
         this.setVisible(true);
     }
