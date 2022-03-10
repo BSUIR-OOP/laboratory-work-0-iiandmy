@@ -1,6 +1,5 @@
 package by.ilya_budevich.model;
 
-
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
@@ -14,6 +13,7 @@ public class Circle extends Ellipse2D {
     }
 
     @Override
+    @Deprecated
     public void setFrame(double x, double y, double w, double h) {
         this.point.setLocation(x, y);
         this.diameter = w;
@@ -28,18 +28,22 @@ public class Circle extends Ellipse2D {
     public double getX() {
         return this.point.getX();
     }
-    
+
+    public double getDiameter() { return this.diameter; }
+
     @Override
     public double getY() {
         return this.point.getY();
     }
     
     @Override
+    @Deprecated
     public double getWidth() {
         return this.diameter;
     }
-    
+
     @Override
+    @Deprecated
     public double getHeight() {
         return this.getWidth();
     }
