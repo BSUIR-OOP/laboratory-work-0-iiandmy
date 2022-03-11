@@ -5,34 +5,31 @@ import by.ilya_budevich.utils.SizeConstants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class InputPanelFactory {
-    private final List<JPanel> panels = new ArrayList<>();
-    private static InputPanelFactory instance;
+public class InputPanelBuilder {
+    private static InputPanelBuilder instance;
 
-    public static final int REGULAR_PANEL = 0;
-    public static final int SYMMETRIC_PANEL = 1;
-    public static final int TWO_POINTS_PANEL = 2;
-
-    public JPanel getPanel(int panelType) {
-        JPanel resultPanel = new JPanel();
-        try {
-           resultPanel = panels.get(panelType);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Try another argument");
-        }
-        return resultPanel;
+    public ShapePanel buildSymmetricPanel() {
+        ShapePanel symmetric = new ShapePanel();
+        return symmetric;
     }
 
-    private InputPanelFactory() {
-        panels.add(new ShapePanel());
+    public ShapePanel buildRegularPanel() {
+        ShapePanel regular = new ShapePanel();
+        return regular;
     }
 
-    public static InputPanelFactory getInstance() {
+    public ShapePanel buildTwoPointsPanel() {
+        ShapePanel twoPoints = new ShapePanel();
+        return twoPoints;
+    }
+
+    private InputPanelBuilder() {
+    }
+
+    public static InputPanelBuilder getInstance() {
         if (instance == null) {
-            instance = new InputPanelFactory();
+            instance = new InputPanelBuilder();
         }
         return instance;
     }
@@ -48,21 +45,6 @@ public class InputPanelFactory {
             this.setLayout(new GridLayout());
             initUI();
             initPanel();
-        }
-
-        public ShapePanel getSymmetricPanel() {
-            ShapePanel symmetric = new ShapePanel();
-            return symmetric;
-        }
-
-        public ShapePanel getRegularPanel() {
-            ShapePanel regular = new ShapePanel();
-            return regular;
-        }
-
-        public ShapePanel getTwoPointsPanel() {
-            ShapePanel twoPoints = new ShapePanel();
-            return twoPoints;
         }
 
         private void initUI() {

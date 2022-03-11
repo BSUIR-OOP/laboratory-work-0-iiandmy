@@ -3,7 +3,7 @@ package by.ilya_budevich.view;
 import by.ilya_budevich.controller.MainController;
 import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.utils.SizeConstants;
-import by.ilya_budevich.view.factory.InputPanelFactory;
+import by.ilya_budevich.view.factory.InputPanelBuilder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,7 @@ public class MenuPanel extends JPanel {
         initUI();
         initSizes();
         this.add(shapeChooseCB);
-        this.add(InputPanelFactory.getInstance().getPanel(InputPanelFactory.REGULAR_PANEL));
+        this.add(InputPanelBuilder.getInstance().buildRegularPanel());
         this.add(paintBN);
     }
 
