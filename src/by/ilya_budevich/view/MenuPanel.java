@@ -1,6 +1,6 @@
 package by.ilya_budevich.view;
 
-import by.ilya_budevich.controller.MainController;
+import by.ilya_budevich.presenter.MainPresenter;
 import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.utils.SizeConstants;
 import by.ilya_budevich.view.builder.InputPanelBuilder;
@@ -52,8 +52,8 @@ public class MenuPanel extends JPanel {
 
         this.paintBN.addActionListener((event) -> {
             String selectedField = (String) this.shapeChooseCB.getSelectedItem();
-            MainController.getInstance().passParams(selectedField, inputPanel.getParams());
-            MainController.getInstance().drawFigure();
+            MainPresenter.getInstance().passParams(selectedField, inputPanel.getParams());
+            MainPresenter.getInstance().drawFigure();
         });
     }
 

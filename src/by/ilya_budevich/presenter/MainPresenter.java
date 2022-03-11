@@ -1,12 +1,12 @@
-package by.ilya_budevich.controller;
+package by.ilya_budevich.presenter;
 
 import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.view.MainFrame;
 
 import java.awt.*;
 
-public class MainController {
-    private static MainController instance;
+public class MainPresenter {
+    private static MainPresenter instance;
     private MainFrame view;
 
     private Shape currentShape;
@@ -26,13 +26,13 @@ public class MainController {
         this.view.getDrawPanel().drawComponent(currentShape);
     }
 
-    private MainController() {
+    private MainPresenter() {
         this.view = MainFrame.getInstance();
     }
 
-    public static MainController getInstance() {
+    public static MainPresenter getInstance() {
         if (instance == null) {
-            instance = new MainController();
+            instance = new MainPresenter();
         }
         return instance;
     }
