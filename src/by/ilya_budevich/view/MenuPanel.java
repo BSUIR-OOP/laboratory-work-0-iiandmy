@@ -1,38 +1,47 @@
 package by.ilya_budevich.view;
 
+import by.ilya_budevich.controller.MainController;
 import by.ilya_budevich.model.factory.ShapeFactory;
-import by.ilya_budevich.utils.JTextFieldHint;
-import by.ilya_budevich.view.factory.MenuPanelFactory;
+import by.ilya_budevich.utils.SizeConstants;
+import by.ilya_budevich.view.factory.InputPanelFactory;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MenuPanel extends JPanel {
     private LayoutManager layout;
+    private MainController controller;
+
+    private JComboBox shapeChooseCB;
+    private JButton paintBN;
 
     public MenuPanel() {
+        this.controller = MainController.getInstance();
         initLayout();
         initPanel();
     }
 
     private void initLayout() {
-        layout = new BorderLayout();
+        this.layout = new FlowLayout();
         this.setLayout(layout);
     }
 
     private void initPanel() {
-        this.add(new ShapeChoosePanel(), BorderLayout.WEST);
-        this.add(MenuPanelFactory.getInstance().getPanel(MenuPanelFactory.REGULAR_PANEL), BorderLayout.CENTER);
+        initUI();
+        initSizes();
+        this.add(shapeChooseCB);
+        this.add(InputPanelFactory.getInstance().getPanel(InputPanelFactory.REGULAR_PANEL));
+        this.add(paintBN);
     }
 
-    private static class ShapeChoosePanel extends JPanel {
-        public ShapeChoosePanel() {
-            this.setLayout(new GridLayout(1, 1));
-            initPanel();
-        }
+    private void initUI() {
+        this.shapeChooseCB = new JComboBox<>(ShapeFactory.getInstance().getShapeNames());
+        this.paintBN = new JButton("Paint!");
+        this.setBackground(Color.LIGHT_GRAY);
+    }
 
-        private void initPanel() {
-            this.add(new JComboBox<>(ShapeFactory.getInstance().getShapeNames()));
-        }
+    private void initSizes() {
+        this.shapeChooseCB.setPreferredSize(SizeConstants.DEFAULT_COMBOBOX_DIMENSION);
+        this.paintBN.setPreferredSize(SizeConstants.DEFAULT_BTN_DIMENSION);
     }
 }
