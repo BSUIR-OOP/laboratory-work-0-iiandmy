@@ -1,16 +1,16 @@
 package by.ilya_budevich.view;
 
-import by.ilya_budevich.utils.JTextFieldHint;
+import by.ilya_budevich.utils.TextFieldHint;
 import by.ilya_budevich.utils.SizeConstants;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ShapePanel extends JPanel {
-    private JTextFieldHint widthTF;
-    private JTextFieldHint heightTF;
-    private JTextFieldHint pointX;
-    private JTextFieldHint pointY;
+    private TextFieldHint widthTF;
+    private TextFieldHint heightTF;
+    private TextFieldHint pointX;
+    private TextFieldHint pointY;
     private JPanel pointPanel;
 
     public ShapePanel() {
@@ -57,11 +57,11 @@ public class ShapePanel extends JPanel {
     }
 
     private void initUI() {
-        this.widthTF = new JTextFieldHint("Width");
-        this.heightTF = new JTextFieldHint("Height");
+        this.widthTF = new TextFieldHint("Width");
+        this.heightTF = new TextFieldHint("Height");
 
-        this.pointX = new JTextFieldHint("X");
-        this.pointY = new JTextFieldHint("Y");
+        this.pointX = new TextFieldHint("X");
+        this.pointY = new TextFieldHint("Y");
 
         this.initSizes();
 

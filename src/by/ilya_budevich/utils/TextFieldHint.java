@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class JTextFieldHint extends JTextField implements FocusListener {
+public class TextFieldHint extends JTextField implements FocusListener {
 
     private String hint;
     private boolean showingHint;
 
-    public JTextFieldHint(final String hint) {
+    public TextFieldHint(final String hint) {
         super(hint);
         this.hint = hint;
         this.showingHint = true;
