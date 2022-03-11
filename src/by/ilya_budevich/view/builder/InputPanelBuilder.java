@@ -1,4 +1,4 @@
-package by.ilya_budevich.view.factory;
+package by.ilya_budevich.view.builder;
 
 import by.ilya_budevich.view.ShapePanel;
 

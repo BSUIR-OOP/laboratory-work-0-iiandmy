@@ -3,7 +3,7 @@ package by.ilya_budevich.view;
 import by.ilya_budevich.controller.MainController;
 import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.utils.SizeConstants;
-import by.ilya_budevich.view.factory.InputPanelBuilder;
+import by.ilya_budevich.view.builder.InputPanelBuilder;
 
 import javax.swing.*;
 import java.awt.*;
