@@ -6,7 +6,7 @@ import java.awt.event.FocusListener;
 
 public class JTextFieldHint extends JTextField implements FocusListener {
 
-    private final String hint;
+    private String hint;
     private boolean showingHint;
 
     public JTextFieldHint(final String hint) {
@@ -14,6 +14,11 @@ public class JTextFieldHint extends JTextField implements FocusListener {
         this.hint = hint;
         this.showingHint = true;
         super.addFocusListener(this);
+    }
+
+    public void changeHint(final String hint) {
+        super.setText(hint);
+        this.hint = hint;
     }
 
     @Override
