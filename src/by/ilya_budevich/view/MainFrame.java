@@ -12,7 +12,7 @@ public class MainFrame extends JFrame {
 
     public DrawPanel getDrawPanel() {
         return (DrawPanel) drawPanel;
-    };
+    }
 
     public MainFrame(String frameTitle) {
         super(frameTitle);
@@ -22,6 +22,7 @@ public class MainFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         this.setResizable(false);
 
         // Add draw panel
@@ -30,7 +31,6 @@ public class MainFrame extends JFrame {
 
         // Add menu panel
         menuPanel = new MenuPanel();
-        this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         this.add(menuPanel, BorderLayout.NORTH);
 
         this.setVisible(true);
