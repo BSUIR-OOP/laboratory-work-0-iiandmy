@@ -6,14 +6,14 @@ import by.ilya_budevich.model.Rectangle;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 public class ShapeFactory {
-    private final Map<String, Supplier<Shape>> shapes = new HashMap<>();
+    private final Map<String, Function<double[], Shape>> shapes = new HashMap<>();
     private static ShapeFactory instance;
 
-    public Shape getShape(String shapeName) {
-        return shapes.get(shapeName).get();
+    public Shape getShape(String shapeName, double ...params) {
+        return shapes.get(shapeName).apply(params);
     }
 
     public String[] getShapeNames() {
@@ -21,11 +21,11 @@ public class ShapeFactory {
     }
 
     private ShapeFactory() {
-        shapes.put("Circle", () -> new Circle(0, 0, 0));
-        shapes.put("Ellipse", () -> new Ellipse(0, 0, 0, 0));
-        shapes.put("Line", () -> new Line(0, 0, 0, 0));
-        shapes.put("Rectangle", () -> new Rectangle(0,0,0,0));
-        shapes.put("Square", () -> new Square(0,0,0));
+        shapes.put("Circle", (params) -> new Circle(params[0], params[1], params[2]));
+        shapes.put("Ellipse", (params) -> new Ellipse(params[0], params[1], params[2], params[3]));
+        shapes.put("Line", (params) -> new Line(params[0], params[1], params[2], params[3]));
+        shapes.put("Rectangle", (params) -> new Rectangle(params[0], params[1], params[2], params[3]));
+        shapes.put("Square", (params) -> new Square(params[0], params[1], params[2]));
     }
 
     public static ShapeFactory getInstance() {

@@ -22,7 +22,7 @@ public class App {
     }
 
     public static void setupApplication() {
-        mainFrame = new MainFrame("Paint");
+        mainFrame = MainFrame.getInstance();
     }
 
     public static class Figures {

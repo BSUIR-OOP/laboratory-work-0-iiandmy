@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
+    private static MainFrame instance;
+
     public final int WINDOW_WIDTH = 600;
     public final int WINDOW_HEIGHT = 400;
 
@@ -14,8 +16,8 @@ public class MainFrame extends JFrame {
         return (DrawPanel) drawPanel;
     }
 
-    public MainFrame(String frameTitle) {
-        super(frameTitle);
+    private MainFrame() {
+        super("Paint!");
 
         // Frame setup
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -34,5 +36,12 @@ public class MainFrame extends JFrame {
         this.add(menuPanel, BorderLayout.NORTH);
 
         this.setVisible(true);
+    }
+
+    public static MainFrame getInstance() {
+        if (instance == null) {
+            instance = new MainFrame();
+        }
+        return instance;
     }
 }

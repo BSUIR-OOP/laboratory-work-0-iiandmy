@@ -19,6 +19,16 @@ public class ShapePanel extends JPanel {
         this.initPanel();
     }
 
+    public double[] getParams() {
+        double[] result = new double[] {
+                Double.parseDouble(pointX.getText()),
+                Double.parseDouble(pointY.getText()),
+                Double.parseDouble(widthTF.getText()),
+                Double.parseDouble(heightTF.getText())
+        };
+        return result;
+    }
+
     public void makePanelRegular() {
         this.resetUI();
     }

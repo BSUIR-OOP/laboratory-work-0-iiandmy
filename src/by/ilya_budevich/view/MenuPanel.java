@@ -10,18 +10,16 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel {
     private LayoutManager layout;
-    private MainController controller;
 
     private JComboBox shapeChooseCB;
     private JButton paintBN;
-    private JPanel inputPanel;
+    private ShapePanel inputPanel;
 
     public static final int REGULAR_PANEL = 0;
     public static final int SYMMETRIC_PANEL = 1;
     public static final int TWO_POINTS_PANEL = 2;
 
     public MenuPanel() {
-        this.controller = MainController.getInstance();
         initLayout();
         initPanel();
     }
@@ -48,8 +46,14 @@ public class MenuPanel extends JPanel {
     }
 
     private void initListeners() {
-        this.paintBN.addActionListener((event) -> {
+        this.shapeChooseCB.addItemListener((e) -> {
+            String selectedField = (String) this.shapeChooseCB.getSelectedItem();
+        });
 
+        this.paintBN.addActionListener((event) -> {
+            String selectedField = (String) this.shapeChooseCB.getSelectedItem();
+            MainController.getInstance().passParams(selectedField, inputPanel.getParams());
+            MainController.getInstance().drawFigure();
         });
     }
 
@@ -58,7 +62,7 @@ public class MenuPanel extends JPanel {
         this.paintBN.setPreferredSize(SizeConstants.DEFAULT_BTN_DIMENSION);
     }
 
-    private JPanel buildPanel(int panelType) {
+    private ShapePanel buildPanel(int panelType) {
         InputPanelBuilder builder = InputPanelBuilder.getInstance();
         builder.reset();
         switch (panelType) {
