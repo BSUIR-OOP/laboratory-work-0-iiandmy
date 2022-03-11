@@ -2,6 +2,7 @@ package by.ilya_budevich.view;
 
 import by.ilya_budevich.model.factory.ShapeFactory;
 import by.ilya_budevich.utils.JTextFieldHint;
+import by.ilya_budevich.view.factory.MenuPanelFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ public class MenuPanel extends JPanel {
 
     private void initPanel() {
         this.add(new ShapeChoosePanel(), BorderLayout.WEST);
-        this.add(new ShapePanel(), BorderLayout.CENTER);
+        this.add(MenuPanelFactory.getInstance().getPanel(MenuPanelFactory.REGULAR_PANEL), BorderLayout.CENTER);
     }
 
     private static class ShapeChoosePanel extends JPanel {
@@ -32,39 +33,6 @@ public class MenuPanel extends JPanel {
 
         private void initPanel() {
             this.add(new JComboBox<>(ShapeFactory.getInstance().getShapeNames()));
-        }
-    }
-
-    private static class ShapePanel extends JPanel {
-        private JTextField widthTF;
-        private JTextField heightTF;
-        private JTextField pointX;
-        private JTextField pointY;
-        private JPanel pointPanel;
-
-        public ShapePanel() {
-            this.setLayout(new GridLayout(1, 3));
-            initComponents();
-            initPanel();
-        }
-
-        private void initComponents() {
-            widthTF = new JTextFieldHint("Width");
-            heightTF = new JTextFieldHint("Height");
-
-            pointX = new JTextFieldHint("X");
-            pointY = new JTextFieldHint("Y");
-
-            pointPanel = new JPanel();
-            pointPanel.setLayout(new GridLayout());
-            pointPanel.add(pointX);
-            pointPanel.add(pointY);
-        }
-
-        private void initPanel() {
-            this.add(pointPanel);
-            this.add(widthTF);
-            this.add(heightTF);
         }
     }
 }

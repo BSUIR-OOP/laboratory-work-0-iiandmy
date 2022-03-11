@@ -1,5 +1,6 @@
 package by.ilya_budevich;
 
+import by.ilya_budevich.model.Circle;
 import by.ilya_budevich.model.Line;
 import by.ilya_budevich.model.Rectangle;
 import by.ilya_budevich.view.MainFrame;
@@ -10,14 +11,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class App {
+    private static MainFrame mainFrame;
+
     public static void main(String[] args) {
         setupApplication();
-        new Figures(new Line(1, 1, 1, 5), new Rectangle(5, 5, 10, 10))
-                .drawFigures();
+        new Figures(new Line(1, 1, 100, 50),
+                    new Rectangle(50, 5, 100, 150),
+                    new Circle(5, 250, 50)
+        ).drawFigures();
     }
 
     public static void setupApplication() {
-        JFrame mainFrame = new MainFrame("Paint");
+        mainFrame = new MainFrame("Paint");
     }
 
     public static class Figures {
@@ -34,7 +39,11 @@ public class App {
         public List<Shape> getFigures() { return array; }
 
         public void drawFigures() {
-            array.forEach(System.out::println);
+            JPanel drawPanel = mainFrame.getDrawPanel();
+            array.forEach((figure) -> {
+                System.out.println(figure);
+                mainFrame.getDrawPanel().drawComponent(figure);
+            });
         }
     }
 }
