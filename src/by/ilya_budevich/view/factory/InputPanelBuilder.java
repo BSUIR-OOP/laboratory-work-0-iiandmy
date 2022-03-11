@@ -1,30 +1,34 @@
 package by.ilya_budevich.view.factory;
 
-import by.ilya_budevich.utils.JTextFieldHint;
-import by.ilya_budevich.utils.SizeConstants;
-
-import javax.swing.*;
-import java.awt.*;
+import by.ilya_budevich.view.ShapePanel;
 
 public class InputPanelBuilder {
     private static InputPanelBuilder instance;
 
-    public ShapePanel buildSymmetricPanel() {
-        ShapePanel symmetric = new ShapePanel();
-        return symmetric;
+    private ShapePanel result;
+
+    public void reset() {
+        result = new ShapePanel();
     }
 
-    public ShapePanel buildRegularPanel() {
-        ShapePanel regular = new ShapePanel();
-        return regular;
+    public ShapePanel build() {
+        return result;
     }
 
-    public ShapePanel buildTwoPointsPanel() {
-        ShapePanel twoPoints = new ShapePanel();
-        return twoPoints;
+    public void changeToRegularPanel() {
+        result.makePanelRegular();
+    }
+
+    public void changeToSymmetricPanel() {
+        result.makePanelSymmetric();
+    }
+
+    public void changeToTwoPointsPanel() {
+        result.makePanelTwoPoints();
     }
 
     private InputPanelBuilder() {
+        result = new ShapePanel();
     }
 
     public static InputPanelBuilder getInstance() {
@@ -32,48 +36,5 @@ public class InputPanelBuilder {
             instance = new InputPanelBuilder();
         }
         return instance;
-    }
-
-    private static class ShapePanel extends JPanel {
-        private JTextField widthTF;
-        private JTextField heightTF;
-        private JTextField pointX;
-        private JTextField pointY;
-        private JPanel pointPanel;
-
-        private ShapePanel() {
-            this.setLayout(new GridLayout());
-            initUI();
-            initPanel();
-        }
-
-        private void initUI() {
-            widthTF = new JTextFieldHint("Width");
-            heightTF = new JTextFieldHint("Height");
-
-            pointX = new JTextFieldHint("X");
-            pointY = new JTextFieldHint("Y");
-
-            initSizes();
-//
-//            pointPanel = new JPanel();
-//            pointPanel.setLayout(new GridLayout());
-//            pointPanel.add(pointX);
-//            pointPanel.add(pointY);
-        }
-
-        private void initSizes() {
-            pointX.setPreferredSize(SizeConstants.DEFAULT_TEXTFIELD_DIMENSION);
-            pointY.setPreferredSize(SizeConstants.DEFAULT_TEXTFIELD_DIMENSION);
-
-            widthTF.setPreferredSize(SizeConstants.DEFAULT_LARGE_TF_DIMENSION);
-            heightTF.setPreferredSize(SizeConstants.DEFAULT_LARGE_TF_DIMENSION);
-        }
-
-        private void initPanel() {
-            this.add(pointPanel);
-            this.add(widthTF);
-            this.add(heightTF);
-        }
     }
 }
